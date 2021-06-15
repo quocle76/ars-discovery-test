@@ -1,4 +1,4 @@
-- name: Deploy
+name: Deploy
   uses: peaceiris/actions-gh-pages@v3
   with:
     github_token: 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

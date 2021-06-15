@@ -1,0 +1,139 @@
+
+.dialog-transition {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: table;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+    &.dialog-transition-full-screen {
+        @media screen and (max-width: 767px) {
+            display: block;
+            overflow-y: scroll;
+            .dialog-wrapper {
+                display: block;
+            }
+        }
+    }
+    @media screen and (max-width: 360px) {
+        display: block;
+        overflow-y: scroll;
+    }
+}
+
+.dialog-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    @media screen and (max-width: 360px) {
+        display: block;
+    }
+}
+
+.dialog-container {
+    width: 752px;
+    padding: 24px 32px 24px 24px;
+    border-radius: 32px;
+    background-color: #f4f4f4;
+    position: relative;
+    margin: 0 auto;
+  }
+  .dialog-button-close {
+    text-align: right;
+    position: absolute;
+    right: 32px;
+    cursor: pointer;
+  }
+  
+  .dialog-button-close img {
+    width: 100%;
+    height: auto;
+  }
+.title-dialog {
+    font-size: 36px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #51475a;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: $font-montserrat;
+  }
+  
+.description-dialog {
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    color: #51475a;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 395px;
+    font-family: $font-montserrat;
+}
+.dialog-right {
+    position: absolute;
+    width: 269px;
+    height: 269px;
+    right: 0;
+    bottom: 0;
+}
+
+.dialog-right img {
+    width: 100%;
+    height: auto;
+}
+.dialog-left {
+    width: 600px;
+    padding: 32px;
+    border-radius: 32px;
+    background-color: #ffffff;
+}
+@media screen and (max-width: 767px) {
+    h5 {
+        font-size: 18px;
+        max-width: 100%;
+    }
+    .dialog-container,
+    .dialog-left {
+        width: 100%;
+    }
+    
+    .dialog-right {
+        width: 200px;
+        height: 200px;
+    }
+    .dialog-container {
+        padding: 64px 16px 24px 16px;
+    }
+    .dialog-button-close {
+        right: 16px;
+        top: 16px;
+        width: 32px;
+        height: 32px;
+    }
+    button {
+        width: 100%;
+    }
+    .dialog-right {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .dialog-left {
+        padding: 24px;
+    }
+    .dialog-transition {
+        .dialog-container {
+            .button-label {
+                margin-bottom: 176px;
+            }
+        }
+    
+    }
+}

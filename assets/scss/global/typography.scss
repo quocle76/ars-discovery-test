@@ -1,0 +1,57 @@
+@import url("https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css");
+
+
+@import "~/assets/scss/global/colors.scss";
+@import "~/assets/scss/global/variables.scss";
+@import "~/assets/scss/global/mixins.scss";
+
+body {
+  line-height: 1.5em;
+  color: $text-color;
+  font-family: $font-montserrat;
+}
+
+#app {
+  background-color: #fff
+}
+
+h1 {
+  @include headings(1);
+
+  @include mobile {
+    font-size: 30px;
+  }
+}
+
+#app {
+  background-color: #fff;
+}
+
+h2 {
+  @include headings(2);
+}
+
+h3 {
+  @include headings(3);
+}
+
+h4 {
+  @include headings(4);
+}
+
+h5 {
+  @include headings(5);
+}
+
+.mb-37 {
+  margin-bottom: 37px;
+}
+
+.mt-common-16 {
+  margin-top: 16px;
+}
+@media screen and (max-width: 767px) {
+  .mb-mb-0 {
+    margin-bottom: 0;
+  }
+}

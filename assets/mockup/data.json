@@ -1,0 +1,98 @@
+{
+    "GREETINGS": {
+        "title": "Greetings from Cubby! ",
+        "description": "Ready to win some ASR points and more? See if you can complete our games for all 14 countries!",
+        "btnText": "Play Now",
+        "url": "cubby-uniform@2x.png"
+    },
+    "COMEBACK": {
+        "title": "Welcome back!",
+        "description": "Did you know you can earn more NFT lucky draw chances by replaying the countries?",
+        "btnText": "Play Now",
+        "url": "cubby-uniform@2x.png"
+    },
+    "VIETNAM": {
+        "title": "Welcome to Vietnam!",
+        "description": "The white sandy beaches and clear waters are never far when you’re at Nha Trang.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "PHILIPPINES": {
+        "title": "Welcome to Philippines!",
+        "description": "Not only is Cebu its oldest city, it is also one of the world's best-preserved Spanish colonial towns.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "INDONESIA": {
+        "title": "Welcome to Indonesia!",
+        "description": "Made up of over 17,000 islands, Bali is just one of the many picturesque islands here.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "JAPAN": {
+        "title": "Welcome to Japan!",
+        "description": "Savour the finer flavours of Fukuoka, one of the country’s best food cities and second only to Tokyo for the highest concentration of restaurants.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "INDIA": {
+        "title": "Welcome to India!",
+        "description": "Explore the many ancient temples, vibrant arts and bustling culinary scene that makes Chennai, the capital of Tamil Nadu.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "USA": {
+        "title": "Welcome to USA!",
+        "description": "Home to the 7th busiest subway system, New York has a whopping total of 472 train stations right now.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "KOREA": {
+        "title": "Welcome to Korea!",
+        "description": "Its capital city, Seoul, is a wondrous blend of old and new, with high-tech districts amidst ancient palaces.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "FRANCE": {
+        "title": "Welcome to France!",
+        "description": "Come experience the Parisian life and wake up to views of the Eiffel Tower from a 5-star hotel.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "THAILAND": {
+        "title": "Welcome to Thailand! ",
+        "description": "The popular Sriracha hot sauce was actually named after one of its seaside cities, Si Racha.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "SINGAPORE": {
+        "title": "Welcome to Singapore!",
+        "description": "From fine dining to hawker fare, Singapore is a food paradise that’s known for its culinary diversity.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "AUSTRALIA": {
+        "title": "Welcome to Australia!",
+        "description": "With more than half of all Australians owning pets, Melbourne is the purfect place for you and your four-legged friend.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "MALAYSIA": {
+        "title": "Welcome to Malaysia!",
+        "description": "Here you’ll find the world's tallest twin skyscrapers in Kuala Lumpur, and beautiful mosques across the country.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "CHINA": {
+        "title": "Welcome to China!",
+        "description": "Discover the grand Forbidden City and 3000 years of recorded history at the heart of Beijing.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    },
+    "DUBAI": {
+        "title": "Welcome to Dubai!",
+        "description": "Did you know it was mostly a desert just 20 years ago? Today, it is filled with luxury shopping, modern architecture, and lively nightlife scenes.",
+        "btnText": "Let's Go!",
+        "url": "cubby-uniform@2x.png"
+    }
+}

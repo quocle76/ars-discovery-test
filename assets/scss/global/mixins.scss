@@ -1,0 +1,181 @@
+@mixin border-radius($radius: 1px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Transform: Translate
+@mixin translate($x, $y) {
+  -o-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+// Transform: TranslateX
+@mixin translateX($value) {
+  -o-transform: translateX($value);
+  -ms-transform: translateX($value);
+  -moz-transform: translateX($value);
+  -webkit-transform: translateX($value);
+  transform: translateX($value);
+}
+
+// Transform: TranslateY
+@mixin translateY($value) {
+  -o-transform: translateY($value);
+  -ms-transform: translateY($value);
+  -moz-transform: translateY($value);
+  -webkit-transform: translateY($value);
+  transform: translateY($value);
+}
+
+// Transition
+@mixin transition($transition) {
+  -o-transition: $transition;
+  -ms-transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+@mixin skewAndTranslate($posX) {
+  -ms-transform: skewX(-30deg) translateX($posX);
+  -webkit-transform: skewX(-30deg) translateX($posX);
+  transform: skewX(-30deg) translateX($posX);
+}
+
+// Transform: Scale
+@mixin scale($value) {
+  -o-transform: scale($value);
+  -ms-transform: scale($value);
+  -moz-transform: scale($value);
+  -webkit-transform: scale($value);
+  transform: scale($value);
+}
+
+/* Animations */
+@mixin animate($keyframe, $time) {
+  -o-animation: $keyframe $time ease;
+  animation: $keyframe $time ease;
+}
+
+/* Bounce Animations */
+@mixin bounceAnimate($keyframe, $time) {
+  -o-animation: $keyframe $time infinite;
+  animation: $keyframe $time infinite;
+  -webkit-animation: $keyframe $time infinite;
+  -moz-animation: $keyframe $time infinite;
+  -ms-animation: $keyframe $time infinite;
+}
+
+/* Slide Animations */
+@mixin slideAnimation($keyframe, $time) {
+  -o-animation: $keyframe $time;
+  animation: $keyframe $time;
+  -webkit-animation: $keyframe $time;
+  -moz-animation: $keyframe $time;
+  -ms-animation: $keyframe $time;
+}
+
+@mixin roundEdgeLine($color, $width, $height, $borderRadius, $marginRight) {
+  content: "";
+  background: $color;
+  width: $width;
+  height: $height;
+  border-radius: $borderRadius;
+  margin-right: $marginRight;
+}
+
+@mixin linearGradient($angleright, $angle, $color, $transparent) {
+  background: linear-gradient($angle, $color 40%, $transparent);
+  background: -webkit-linear-gradient($angleright, $color 40%, $transparent);
+}
+
+/* Expand Animations */
+@mixin expandAnimate($keyframe, $time) {
+  -o-animation: $keyframe $time infinite;
+  animation: $keyframe $time infinite;
+  -webkit-animation: $keyframe $time infinite;
+  -moz-animation: $keyframe $time infinite;
+  -ms-animation: $keyframe $time infinite;
+}
+
+@mixin headings($heading) {
+  font-family: $font-montserrat;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: $header-color;
+
+  @if ($heading == 1) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  @else if ($heading == 2) {
+    font-size: 24px;
+    line-height: 38px;
+  }
+
+  @else if ($heading == 3) {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  @else if ($heading == 4) {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  @else if ($heading == 5) {
+    font-size: 12px;
+    line-height: 19px;
+  }
+  @content;
+}
+
+/* Set values of corresponding screens */
+
+$mobile-width: 376px;
+$tablet-width: 767px;
+$desktop-width: 992px;
+$large-desktop-width: 1440px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (max-width: #{$large-desktop-width}) {
+    @content;
+  }
+}
+
+@mixin over-large-desktop {
+  @media (min-width: #{$large-desktop-width}) {
+    @content;
+  }
+}

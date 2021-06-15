@@ -1,0 +1,60 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  position: relative;
+  .input-container {
+    position: relative;
+  }
+  .input {
+    min-width: 368px;
+    min-height: 58px;
+    padding: 18px 24px 16px 55px;
+    border-radius: 30px;
+    border: solid 1px $input-border-color;
+    &:focus {
+      outline: none;
+    }
+    @media screen and (max-width: 767px) {
+      min-width: 100%;
+      width: 100%;
+    }
+  
+    &::placeholder {
+      margin: 0 0 0 11px;
+      opacity: 0.5;
+      font-size: 20px;
+      color: #51475a;
+    }
+  }
+  .error-msg {
+    font-size: 14px;
+    line-height: 2;
+    color: $text-input-error-color;
+  }
+ .svg-inline--fa {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  left: 24px;
+  color: #000;
+
+  &.visibility-password {
+    cursor: pointer;
+    right: 20px;
+    left: auto;
+    color: $icon-visibility;
+
+    &.on {
+      color: $black;
+    }
+  }
+ }
+}

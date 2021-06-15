@@ -1,0 +1,4 @@
+// HOME PAGE
+
+export const ACTION_ADD_COUNTRY = "ACTION_ADD_COUNTRY";
+export const HOME_MODULE_NAME = "HOME_MODULE";

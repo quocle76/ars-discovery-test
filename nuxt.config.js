@@ -1,16 +1,20 @@
 import colors from 'vuetify/es5/util/colors'
 const path = require("path");
-// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
-    base: '/ars-discovery/',
+    base: '/ars-discovery-test/',
   }
 } : {};
-
 export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+
+  // Target: https://go.nuxtjs.dev/config-target
+
+  // generate static files options
+ 
+  ...routerBase,
   // Global page headers: https://go.nuxtjs.dev/config-head
-   // Global page headers: https://go.nuxtjs.dev/config-head
-   head: {
+  head: {
     titleTemplate: "The Traveller's Discovery",
     title: "The Traveller's Discovery",
     htmlAttrs: {
@@ -66,21 +70,16 @@ export default {
       '~/assets/scss/global/slick-slider.scss',
     ]
   },
-  // omit
-  ...routerBase,
-  // omit
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     // https://axios.nuxtjs.org/extend
-    {
-      src: '~/plugins/axios.js'
-    },
+    { src: '~/plugins/axios.js' },
   ],
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: [{
-    path: '~/components',
-    extensions: ['vue']
-  }],
+  components: [
+    { path: '~/components', extensions: ['vue'] }
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -91,8 +90,9 @@ export default {
       component: 'fa', //customize component name
       imports: [{
         set: '@fortawesome/free-solid-svg-icons',
-        icons: ['faEnvelope', 'faLock', 'faEye']
-      }]
+          icons: ['faEnvelope', 'faLock', 'faEye']
+        }
+      ]
     }]
   ],
 
@@ -102,7 +102,19 @@ export default {
     // https://axios.nuxtjs.org
     '@nuxtjs/axios',
     '@nuxtjs/recaptcha',
+    // https://github.com/nuxt-community/gtm-module
+    '@nuxtjs/gtm',
   ],
+
+  gtm: {
+    id: 'GTM-W3JC72T', // UAT2 UAT/Staging/Dev
+  },
+
+  publicRuntimeConfig: {
+    gtm: {
+      id: process.env.GOOGLE_TAG_MANAGER_ID
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -133,7 +145,7 @@ export default {
   // Recaptcha
   recaptcha: {
     version: 3,
-    siteKey: '6Lc41A4bAAAAAGBwKBpgKEXaN7um8iP2quhUGrtx', // Site key for requests
+    siteKey: '6Lc41A4bAAAAAGBwKBpgKEXaN7um8iP2quhUGrtx',    // Site key for requests
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

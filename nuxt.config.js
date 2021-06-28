@@ -1,37 +1,17 @@
 import colors from 'vuetify/es5/util/colors'
 const path = require("path");
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/ars-discovery/',
   }
 } : {};
+
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-
-  // Target: https://go.nuxtjs.dev/config-target
-  // target: 'static',
-
-  // generate static files options
-  build: {
-    publicPath: './static/',
-  },
-  ...routerBase,
-  // router: {
-  //   base: '/',
-  //   extendRoutes(routes) {
-  //     routes.forEach((route) => {
-  //       const alias =
-  //         route.path.length > 1 ? `${route.path}/index.html` : '/index.html'
-  //       route.alias = alias
-  //     })
-  //   },
-  // },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "The Traveller's Discovery",
-    title: "The Traveller's Discovery",
+    titleTemplate: '%s - asr-discovery',
+    title: 'asr-discovery',
     htmlAttrs: {
       lang: 'en'
     },
@@ -45,56 +25,38 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Welcome to discoverasr.com, the home of 200+ ASR properties across 13 brands. Explore the world with our virtual arcade and weekly flash sale from 12 July to 24 September 2021. Select a country to start playing. Win up to 1,400 ASR points and lucky draw chances for our 11 NFT prizes!'
-      },
-      {
-        hid: 'keywords',
-        name: 'keywords',
-        content: 'serviced apartment, serviced residence, ascott, ascott star rewards, ascott membership, international travel, hotel, international hotel, luxury hotel, hotel promotion, flash sale'
+        content: ''
       }
     ],
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
-    },
-      {
-        rel: 'stylesheet',
-        href: '/bootstrap.min.css'
-    },
-    {
-        rel: 'stylesheet',
-        href: '/main.css'
-      }
-   ]
+    }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     // CSS file in the project
-    '~/assets/css/fonts.css',
-    '~/assets/css/inline.css',
-    '~/assets/css/style.css',
-    '~/assets/css/override.css',
+    '~/assets/css/main.css',
     '~/assets/scss/global/typography.scss',
+    '~/assets/css/fonts.css',
   ],
-
-  styleResources: {
-    scss: [
-      '~/assets/scss/global/variables.scss',
-      '~/assets/scss/global/slick-slider.scss',
-    ]
-  },
-
+  // omit
+  ...routerBase,
+  // omit
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     // https://axios.nuxtjs.org/extend
-    { src: '~/plugins/axios.js' },
+    {
+      src: '~/plugins/axios.js'
+    },
   ],
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: [
-    { path: '~/components', extensions: ['vue'] }
-  ],
+  components: [{
+    path: '~/components',
+    extensions: ['vue']
+  }],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -105,9 +67,8 @@ export default {
       component: 'fa', //customize component name
       imports: [{
         set: '@fortawesome/free-solid-svg-icons',
-          icons: ['faEnvelope', 'faLock', 'faEye']
-        }
-      ]
+        icons: ['faEnvelope', 'faLock', 'faEye']
+      }]
     }]
   ],
 
@@ -117,18 +78,13 @@ export default {
     // https://axios.nuxtjs.org
     '@nuxtjs/axios',
     '@nuxtjs/recaptcha',
-    // https://github.com/nuxt-community/gtm-module
-    '@nuxtjs/gtm',
   ],
-
-  gtm: {
-    id: 'GTM-W3JC72T', // UAT2 UAT/Staging/Dev
-  },
-
-  publicRuntimeConfig: {
-    gtm: {
-      id: process.env.GOOGLE_TAG_MANAGER_ID
-    }
+  styleResources: {
+    scss: [
+      '~/assets/scss/global/variables.scss',
+      '~/assets/scss/global/colors.scss',
+      '~/assets/scss/global/mixins.scss',
+    ]
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -160,18 +116,12 @@ export default {
   // Recaptcha
   recaptcha: {
     version: 3,
-    siteKey: '6Lc41A4bAAAAAGBwKBpgKEXaN7um8iP2quhUGrtx',    // Site key for requests
+    siteKey: '6Lc41A4bAAAAAGBwKBpgKEXaN7um8iP2quhUGrtx', // Site key for requests
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, {
-      isDev,
-      isClient
-    }) {
-      const alias = (config.resolve.alias = config.resolve.alias || {});
-      alias["~"] = path.join(__dirname);
-      config.resolve.symlinks = false;
-    }
-  }
+    publicPath: './static/',
+  },
+
 }

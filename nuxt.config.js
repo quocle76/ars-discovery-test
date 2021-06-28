@@ -1,18 +1,25 @@
 import colors from 'vuetify/es5/util/colors'
 const path = require("path");
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: '/ars-discovery-test/',
-  }
-} : {};
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
 
   // Target: https://go.nuxtjs.dev/config-target
+  target: 'static',
 
-  // generate static files options
- 
-  ...routerBase,
+
+
+  router: {
+    base: '/ars-discovery-test/',
+    extendRoutes(routes) {
+      routes.forEach((route) => {
+        const alias =
+          route.path.length > 1 ? `${route.path}/index.html` : '/index.html'
+        route.alias = alias
+      })
+    },
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: "The Traveller's Discovery",
@@ -150,7 +157,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    publicPath: './static/',
-  },
-
+    extend(config, {
+      isDev,
+      isClient
+    }) {
+      const alias = (config.resolve.alias = config.resolve.alias || {});
+      alias["~"] = path.join(__dirname);
+      config.resolve.symlinks = false;
+    }
+  }
 }

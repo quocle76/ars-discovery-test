@@ -9,9 +9,10 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    titleTemplate: '%s - asr-discovery',
-    title: 'asr-discovery',
+   // Global page headers: https://go.nuxtjs.dev/config-head
+   head: {
+    titleTemplate: "The Traveller's Discovery",
+    title: "The Traveller's Discovery",
     htmlAttrs: {
       lang: 'en'
     },
@@ -25,23 +26,46 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ''
+        content: 'Welcome to discoverasr.com, the home of 200+ ASR properties across 13 brands. Explore the world with our virtual arcade and weekly flash sale from 12 July to 24 September 2021. Select a country to start playing. Win up to 1,400 ASR points and lucky draw chances for our 11 NFT prizes!'
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'serviced apartment, serviced residence, ascott, ascott star rewards, ascott membership, international travel, hotel, international hotel, luxury hotel, hotel promotion, flash sale'
       }
     ],
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
-    }]
+    },
+      {
+        rel: 'stylesheet',
+        href: '/bootstrap.min.css'
+    },
+    {
+        rel: 'stylesheet',
+        href: '/main.css'
+      }
+   ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     // CSS file in the project
-    '~/assets/css/main.css',
-    '~/assets/scss/global/typography.scss',
     '~/assets/css/fonts.css',
+    '~/assets/css/inline.css',
+    '~/assets/css/style.css',
+    '~/assets/css/override.css',
+    '~/assets/scss/global/typography.scss',
   ],
+
+  styleResources: {
+    scss: [
+      '~/assets/scss/global/variables.scss',
+      '~/assets/scss/global/slick-slider.scss',
+    ]
+  },
   // omit
   ...routerBase,
   // omit
@@ -79,13 +103,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/recaptcha',
   ],
-  styleResources: {
-    scss: [
-      '~/assets/scss/global/variables.scss',
-      '~/assets/scss/global/colors.scss',
-      '~/assets/scss/global/mixins.scss',
-    ]
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

@@ -10,12 +10,11 @@ export default {
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  // target: 'static',
 
   // generate static files options
-  generate: {
-    dir: 'dist',
-    subFolders: true
+  build: {
+    publicPath: './static/',
   },
   ...routerBase,
   // router: {

@@ -12,13 +12,17 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/axios": "~5.13.6",
     "@nuxtjs/dotenv": "~1.4.1",
+    "@nuxtjs/gtm": "~2.4.0",
     "@nuxtjs/recaptcha": "~1.0.4",
-    "@nuxtjs/router": "~1.6.1",
     "core-js": "~3.9.1",
     "lodash": "~4.17.21",
-    "nuxt": "~2.15.3"
+    "nuxt": "~2.15.3",
+    "vue-carousel": "^0.18.0",
+    "vue-slick-carousel": "^1.0.6",
+    "vuedraggable": "^2.24.3",
+    "vuejs-vr": "^1.2.2"
   },
   "devDependencies": {
     "@fortawesome/free-solid-svg-icons": "~5.15.3",
@@ -29,7 +33,7 @@
     "babel-jest": "~26.6.3",
     "fibers": "~5.0.0",
     "jest": "~26.6.3",
-    "nuxt-fontawesome": "^0.4.0",
+    "nuxt-fontawesome": "~0.4.0",
     "sass": "~1.32.13",
     "sass-loader": "10",
     "vue-jest": "~3.0.4"

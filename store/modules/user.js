@@ -2,34 +2,44 @@ import userService from '~/services/userService.js';
 
 const state = () => ({
   status: {},
-  user: null
+  token: '',
+  user: null,
+  isFirstTime: false,
 })
 
+const getters = {
+  getToken: state => state.token
+}
+
 const actions = {
-  login({ dispatch, commit }, { email, password }) {
-    userService.login(email, password)
-    .then(
-      user => {
-        dispatch('auth/setToken', user.token, { root: true });
-        commit('LOGIN_SUCCESS', user);
-      },
-      error => {
-        dispatch('auth/setToken', '', { root: true });
-        commit('LOGIN_FAILURE', error);
-      }
-    );
+  async login ({ dispatch, commit }, { email, password }) {
+    try {
+      const { user, isFirstTime, token } = await userService.login(email, password);
+      commit('SET_TOKEN', token);
+      commit('LOGIN_SUCCESS', { isFirstTime, user });
+      dispatch('country/getGameProgress', null,{ root: true });
+      return { user, isFirstTime, token };
+    } catch(e) {
+      commit('SET_TOKEN');
+      commit('LOGIN_FAILURE', e);
+      throw e;
+    }
   },
-  logout({ commit }) {
-    // userService.logout();
-    dispatch('auth/setToken', '', { root: true });
+  async logout({ commit }) {
+    await userService.logout();
+    commit('SET_TOKEN');
     commit('LOGOUT');
+  },
+  setToken ({ commit }, token) {
+    commit('SET_TOKEN', token)
   },
 };
 
 const mutations = {
-  LOGIN_SUCCESS: (state, user) => {
+  LOGIN_SUCCESS: (state, { isFirstTime, user }) => {
     state.status = { loggedIn: true };
     state.user = user;
+    state.isFirstTime = isFirstTime
   },
   LOGIN_FAILURE: (state) => {
     state.status = {};
@@ -39,11 +49,15 @@ const mutations = {
     state.status = {};
     state.user = null;
   },
+  SET_TOKEN: (state, token) => {
+    state.token = token
+  },
 };
 
 export default {
   namespaced: true,
   state,
+  getters,
   actions,
   mutations
 }

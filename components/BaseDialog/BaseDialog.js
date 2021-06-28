@@ -17,7 +17,7 @@ const BaseDialog = {
     methods: {
         clickHandle () {
           this.$emit('click')
-        }
+        },
     },
 }
   

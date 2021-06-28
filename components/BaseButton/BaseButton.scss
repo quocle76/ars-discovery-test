@@ -1,7 +1,7 @@
-button {
-    padding: 17px 38px;
+.button {
+    padding: 16px 38px;
     border-radius: 30px;
-    background-color: $btn-color;
+    background-color: #4b6866;
     outline: 0;
     border: 0;
     font-family: $font-montserrat;
@@ -14,7 +14,151 @@ button {
     text-align: center;
     color: #ffffff;
     cursor: pointer;
-    &--transparent {
-        background-color: 'transparent';
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: #668886;
     }
+
+    &:active {
+        background-color: #4b6866;
+    }
+
+    &:disabled {
+        background-color: #c1d7d5;
+        cursor: not-allowed;
+    }
+
+    // &:focus {
+    //     background-color: #364e4c;
+    // }
+
+    &--transparent {
+        color: #4b6866;
+        background-color: #ffffff;
+        border-radius: 30px;
+        border: solid 2px #4b6866;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #4b6866;
+            color: #ffffff;
+        }
+
+        &:active {
+            background-color: #ffffff;
+            color: #4b6866;
+        }
+
+        &:disabled {
+            background-color: #ffffff;
+            border-color: #c1d7d5;
+            color: #c1d7d5;
+            cursor: not-allowed;
+        }
+
+        // &:focus {
+        //     background-color: #364e4c;
+        //     color: #ffffff;
+        // }
+    }
+
+    &--medium {
+        min-width: 212px;
+    }
+
+    &--btn-start-playing {
+        padding: 11px 46.6px 11px 88.6px;
+        height: 58px;
+        position: relative;
+
+        &::after {
+            content: '';
+            background-image: url('~/assets/images/cubby-uniform-btn-left.png');
+            position: absolute;
+            width: 66px;
+            height: 66px;
+            background-size: contain;
+            bottom: 0;
+            background-repeat: no-repeat;
+            left: 22px;
+        }
+
+        @media (max-width: 1024px) {
+            max-width: 280px;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 320px) {
+           font-size: 18px;
+           max-width: 260px;
+        }
+    }
+
+
+    &--btn-nft-art {
+        padding: 11px 33px 11px 75.6px;
+        height: 58px;
+        position: relative;
+
+        &::after {
+            content: '';
+            background-image: url('~/assets/images/cubby-art.png');
+            position: absolute;
+            width: 66px;
+            height: 66px;
+            background-size: contain;
+            bottom: -3px;
+            background-repeat: no-repeat;
+            left: -8px;
+        }
+
+        @media (max-width: 1024px) {
+            max-width: 280px;
+            width: 100%;
+            padding: 11px 30.5px 11px 78px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 18px;
+            max-width: 260px;
+         }
+    }
+
+    &--btn-weekly-flash {
+        padding: 11px 28.6px 11px 51.6px;
+        height: 58px;
+        position: relative;
+
+        &::after {
+            content: '';
+            background-image: url('~/assets/images/cubby-tiny-noshadow.png');
+            position: absolute;
+            width: 81px;
+            height: 81px;
+            background-size: contain;
+            bottom: -21px;
+            background-repeat: no-repeat;
+            left: -15px;
+        }
+
+        @media (max-width: 1024px) {
+            max-width: 280px;
+            width: 100%;
+            padding: 11px 28.6px 11px 49px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 18px;
+            max-width: 260px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
+
 }

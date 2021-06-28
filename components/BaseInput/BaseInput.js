@@ -1,4 +1,4 @@
-import { validateInput } from 'assets/js/helper'
+import { validateInput } from '~/helpers/validate'
 
 const BaseInput = {
   name: 'BaseInput',
@@ -67,12 +67,8 @@ const BaseInput = {
       }
     },
     changeHanlder (e) {
+      this.$emit('change', e.target.value);
       this.value = e.target.value
-      // if (this.hasValidate) {
-      //   this.triggerValidate(e.target.value, this.type, () => {
-      //     this.value = e.target.value
-      //   })
-      // }
     },
     handleBlur (e) {
       if (this.hasValidate) {

@@ -1,14 +1,18 @@
 
 export const login = (email, password) => {
-  // fake
-  return new Promise((resolve) => {
-    resolve({
-      email,
-      password,
-      token: 'test'
-    });
-  });
+  const axios = window.$nuxt.context.$axios;
+  return axios.$post('/login', {
+    email,
+    password
+  })
 }
+
+export const logout = () => {
+  const axios = window.$nuxt.context.$axios;
+  return axios.$post('/logout');
+}
+
 export default {
-  login
+  login,
+  logout
 }

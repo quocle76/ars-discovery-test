@@ -17,11 +17,11 @@
     min-height: 58px;
     padding: 18px 24px 16px 55px;
     border-radius: 30px;
-    border: solid 1px $input-border-color;
+    border: solid 1px #51475a;
     &:focus {
       outline: none;
     }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 576px) {
       min-width: 100%;
       width: 100%;
     }
@@ -36,7 +36,7 @@
   .error-msg {
     font-size: 14px;
     line-height: 2;
-    color: $text-input-error-color;
+    color: #d35959;
   }
  .svg-inline--fa {
   position: absolute;
@@ -50,10 +50,10 @@
     cursor: pointer;
     right: 20px;
     left: auto;
-    color: $icon-visibility;
+    color: #bebebe;
 
     &.on {
-      color: $black;
+      color: #000000;
     }
   }
  }

@@ -1,0 +1,39 @@
+.wrap-btn {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  a[href=""], a[href="#"] {
+    pointer-events: auto;
+  }
+  &.wrap-desktop {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &.wrap-mobile {
+    @media (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+      align-items: center;
+      button {
+        &:nth-child(2) {
+          margin: 24px 0;
+        }
+      }
+    }
+  }
+
+  .button-link {
+    @media (max-width: 1024px) {
+      margin: 24px 0;
+    }
+  }
+
+  button {
+    margin: 0 21.5px;
+  }
+}

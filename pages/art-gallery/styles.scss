@@ -1,0 +1,287 @@
+.art-gallery {
+    padding-top: 134px;
+    background-image: url("~/assets/images/backgound.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 94px;
+    @media screen and (max-width: 576px) {
+      padding-top: 68px;
+      padding-bottom: 80px;
+    }
+    &__wrapper-button {
+      text-align: center;
+      margin-top: 24px;
+      @media screen and (max-width: 576px) {
+        margin-top: 40px;
+      }
+    }
+    .link-target {
+      display: block;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .back-to-map-link {
+      position: absolute;
+      top: 102px;
+      right: 96px;
+      @media screen and (max-width: 768px) and (min-width: 576px) {
+        top: 85px;
+      }
+      .link {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        outline: none;
+        text-decoration: none;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: #ffffff;
+        .icon {
+          width: 38px;
+          height: 38px;
+          margin-right: 12px;
+        }
+      }
+      @media (max-width: 576px) {
+        top: 24px;
+        right: 24px;
+      }
+    }    
+    &__image {
+      margin: 0px 30px 64px;
+      width: 228px;
+      &:last-child(-n + 4) {
+        margin-bottom: 0;
+      }
+      &__description {
+        margin-top: 24px;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: 3.64px;
+        text-align: center;
+        color: #51475a;
+        @media screen and (max-width: 576px) {
+          margin-top: 80px;
+        }
+      }
+      @media screen and (max-width: 576px) {
+        padding: 0 20px;
+        margin: 0;
+        width: 100%;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &__title {
+      @media screen and (max-width: 576px) {
+        margin-bottom: 64px;
+      }
+      img {
+        max-width: 538px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: flex;
+  
+        @media (max-width: 576px) {
+          display: none;
+        }
+      }
+  
+      h1 {
+        font-family: Montserrat;
+        font-size: 56px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: 2px;
+        text-align: center;
+        color: #51475a;
+        margin: 64px 0 0 0;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+  
+        @media (max-width: 991px) {
+          font-size: 48px;
+          margin-top: 48px;
+          max-width: 600px;
+        }
+      }
+      h5 {
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        text-align: center;
+        color: #51475a;
+        max-width: 550px;
+        margin-top: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        @media screen and (max-width: 576px) {
+          padding: 0 10px;
+        }
+      }
+    }
+  
+    &__content {
+      margin: 24px 0 0 0;
+      &__mobile {
+        display: none;
+        @media screen and (max-width: 576px) {
+          display: block;
+        }
+      }
+      &__desktop {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 80px 8% 0;
+        @media screen and (min-width: 1599px) {
+          margin: 80px 11% 0;
+          
+        }
+        @media screen and (max-width: 576px) {
+          display: none;
+        }
+      }
+  
+      p {
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #51475a;
+        margin: 20px 0 0 0;
+        max-width: 944px;
+        margin-left: auto;
+        margin-right: auto;
+  
+        @media (max-width: 1086px) {
+          padding-left: 56px;
+          padding-right: 56px;
+        }
+  
+        @media (max-width: 991px) {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+  
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  
+    .border-line {
+      @media (max-width: 991px) {
+        display: none;
+      }
+  
+      .line-custom-left {
+        span {
+          &:first-child {
+            height: 3px;
+            width: 30.33%;
+            position: absolute;
+            top: 78px;
+            left: 101px;
+            display: block;
+            background-color: #fef1b6;
+            width: calc(100% - 201px);
+  
+            @media (max-width: 1199px) {
+              top: 54px;
+              width: calc(100% - 165px);
+              left: 82px;
+            }
+          }
+  
+          &:last-child {
+            height: 100%;
+            width: 3px;
+            position: absolute;
+            top: 122px;
+            left: 52px;
+            display: block;
+            background-color: #fef1b6;
+  
+            @media (max-width: 1199px) {
+              top: 101px;
+              left: 38px;
+            }
+          }
+        }
+      }
+  
+      .border-left {
+        position: absolute;
+        top: 70px;
+        left: 48px;
+        pointer-events: none;
+        border-left: none !important;
+        @media (max-width: 1199px) {
+          top: 48px;
+          left: 30px;
+        }
+      }
+  
+      .border-right {
+        position: absolute;
+        top: 70px;
+        right: 48px;
+        pointer-events: none;
+        border-right: none !important;
+  
+        @media (max-width: 1199px) {
+          top: 48px;
+          right: 30px;
+        }
+  
+        img {
+          transform: scaleX(-1);
+        }
+      }
+  
+      .line-custom-right {
+        span {
+          &:last-child {
+            height: 100%;
+            width: 3px;
+            position: absolute;
+            top: 122px;
+            right: 52px;
+            display: block;
+            background-color: #fef1b6;
+  
+            @media (max-width: 1199px) {
+              top: 101px;
+              right: 38px;
+            }
+          }
+        }
+      }
+    }
+  }

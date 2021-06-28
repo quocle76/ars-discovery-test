@@ -1,22 +1,20 @@
 <template>
-    <button
-        :class="[
+  <button
+    :class="[
             'sticky-button',
             variantClass,
             customClass
             ]"
-        :variant="variant"
-        :score="score"
-        @click="$emit('click', $event)"
+    @click="$emit('click', $event)"
   >
     <img
-        v-if="this.variant"
-        :src="require(`~/assets/images/${this.variant}.png`)"
-        class="sticky-button__image"
-        alt=""
+      v-if="this.variant"
+      :src="require(`~/assets/images/${this.variant}.png`)"
+      class="sticky-button__image"
+      alt=""
     />
     <span class="sticky-button__text">
-        {{textScore}}
+      {{totalUnits}}
     </span>
   </button>
 </template>
@@ -24,5 +22,5 @@
 <script src="./BaseStickyButton.js"></script>
 
 <style lang="scss" scoped>
-    @import "BaseStickyButton";
+@import "BaseStickyButton";
 </style>

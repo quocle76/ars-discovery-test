@@ -1,5 +1,5 @@
 #home-page {
-
+  font-family: Montserrat;
   color: #fff;
   position: relative;
   background-image: url("~/assets/images/backgound.jpg");
@@ -12,22 +12,135 @@
   align-items: center;
   overflow: hidden;
 
+  .sticky {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: fixed;
+    right: 0;
+    top: 86px;
+    opacity: 0;
+
+    @media (min-width: 1024px) {
+      top: 39%;
+    }
+
+    &--stop {
+      // prevents the chances from moving
+      position: absolute;
+      top: 668px;
+      @media (min-width: 1024px) {
+        top: 85%;
+      }
+    }
+
+    &--show {
+      opacity: 1;
+    }
+  }
+
+  .terms-conditions {
+    position: absolute;
+    bottom: 23px;
+    right: 90px;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+
+    &--mobile {
+      @media (max-width: 1024px) {
+        display: block;
+        position: relative;
+        bottom: unset;
+        right: unset;
+        margin-top: 24px;
+      }
+    }
+
+    a {
+      font-family: Montserrat;
+      font-size: 13px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.54;
+      letter-spacing: normal;
+      text-align: right;
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+
+  .hidden-first-time-mobile {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .instruction {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+    animation-fill-mode: forwards;
+    min-height: 100vh;
+    bottom: 0;
+    animation-delay: 1.5s;
+    visibility: hidden;
+
+    &.visibility {
+      @media (max-width: 1024px) {
+        visibility: visible;
+      }
+    }
+
+    img {
+      max-width: 26px;
+    }
+
+    p {
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      margin: 10px 0 0 0;
+      max-width: 216px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .countries {
     overflow: hidden;
     width: 1600px;
-    height: 1220px;
+    height: 1340px;
     opacity: 0;
     -webkit-animation: fadeIn 3s;
     animation: fadeIn 3s;
     animation-fill-mode: forwards;
     animation-delay: 1s;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1024px) {
       width: 100vw;
       height: 100vh;
-      -webkit-animation: fadeIn 10s;
-      animation: fadeIn 10s;
+      -webkit-animation: fadeIn 2s;
+      animation: fadeIn 2s;
       animation-fill-mode: forwards;
-      animation-delay: 3s;
     }
   }
 
@@ -39,7 +152,6 @@
     50% {
       opacity: 1;
     }
-
 
     99% {
       opacity: 0.01;
@@ -108,35 +220,83 @@
     }
   }
 
-  .screen-auto-hidden-mobile {
+  #screen-auto-hidden-mobile {
     display: none;
     background-image: url("~/assets/images/backgound-mobile.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
     z-index: 3;
-    position: absolute;
-    height: 100%;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    padding: 74px 0;
+    min-height: 100vh;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    opacity: 0;
 
-    @media (max-width: 1023px) {
+    @media (max-width: 1024px) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
       display: flex;
+    }
 
-      -webkit-animation: fadeOut 7s;
-      animation: fadeOut 7s;
+    @media (max-width: 767px) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    &.fade-screen {
+      -webkit-animation: fadeOut 1s;
+      animation: fadeOut 1s;
       animation-fill-mode: forwards;
-      animation-delay: 3s;
+      display: none;
+    }
+
+    .mountain-mobile {
+      margin-top: 30px;
+
+      @media (max-width: 800px) {
+        padding-right: 34px;
+        padding-left: 120px;
+      }
+
+      @media (max-width: 767px) {
+        padding-left: 71px;
+      }
+
+      .wrap-icon {
+        position: relative;
+      }
+
+      img {
+        &:first-child {
+          max-width: 558px;
+
+          @media (max-width: 800px) {
+            max-width: 100%;
+          }
+        }
+
+        &:last-child {
+          position: absolute;
+          bottom: -1px;
+          max-width: 192px;
+          left: -80px;
+
+          @media (max-width: 767px) {
+            max-width: 96px;
+            bottom: -1px;
+            left: -37px;
+          }
+        }
+      }
     }
 
     .iframe {
       .line-mobile {
-
         span {
           position: absolute;
 
@@ -229,17 +389,13 @@
       color: #ffffff;
       font-family: Montserrat;
 
-      @media (max-width: 374px) {
+      @media (max-width: 568px) {
         font-size: 14px;
       }
     }
 
     .text-header-mobile {
-      display: flex;
-      margin-top: 28px;
-
       img {
-        display: block;
         display: block;
         margin: 0;
         max-width: 100%;
@@ -247,38 +403,55 @@
         margin-right: auto;
         padding-left: 54px;
         padding-right: 54px;
+        max-width: 61%;
 
+        @media (width: 812px) {
+          max-width: 56%;
+        }
+
+        @media (max-width: 768px) {
+          max-width: 87%;
+        }
+
+        @media (max-width: 767px) {
+          max-width: 100%;
+          padding-left: 0px;
+          padding-right: 0px;
+          max-width: 77%;
+        }
       }
     }
 
-    .description-mobile {
+    ::v-deep .description-mobile {
       margin-top: 22px;
+      padding-bottom: 0;
+      padding-top: 0;
 
       @media (max-width: 825px) {
-        padding-left: 36px;
-        padding-right: 36px;
+        padding-left: 33px;
+        padding-right: 33px;
+      }
+
+      @media (width: 568px) {
+        margin-top: 2px;
       }
 
       p {
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.63;
-        letter-spacing: normal;
-        text-align: center;
-        color: #51475a;
         max-width: 824px;
         margin-left: auto;
         margin-right: auto;
         font-family: Montserrat;
+        font-size: 13px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.54;
+        letter-spacing: normal;
+        text-align: center;
+        color: #51475a;
 
-        @media (max-width: 374px) {
-          font-size: 14px;
-        }
-
-        &:last-child {
-          margin-top: 20px;
+        &:nth-child(2) {
+          margin-top: 27px;
         }
       }
     }
@@ -300,21 +473,19 @@
     animation-fill-mode: forwards;
     animation-delay: 2s;
     opacity: 0;
+
     @media (max-width: 1199px) {
       font-size: 24px;
       padding-top: 40px;
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: 1024px) {
       display: none;
     }
-
   }
 
   .text-header {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+    margin-top: 60px;
     position: relative;
     z-index: 3;
     pointer-events: none;
@@ -323,7 +494,8 @@
     animation-fill-mode: forwards;
     animation-delay: 2s;
     opacity: 0;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1024px) {
       display: none;
     }
 
@@ -352,7 +524,7 @@
     position: relative;
     z-index: 3;
 
-    @media (max-width: 1023px) {
+    @media (max-width: 1024px) {
       display: none;
     }
 
@@ -385,7 +557,7 @@
     }
   }
 
-  .description {
+  ::v-deep .description {
     padding: 38px 0 0 0;
     position: relative;
     z-index: 3;
@@ -395,7 +567,8 @@
     animation-fill-mode: forwards;
     animation-delay: 2s;
     opacity: 0;
-    @media (max-width: 1023px) {
+
+    @media (max-width: 1024px) {
       display: none;
     }
 
@@ -408,21 +581,25 @@
       letter-spacing: normal;
       text-align: center;
       color: #ffffff;
-      max-width: 824px;
+      max-width: 952px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
       color: #51475a;
       pointer-events: none;
 
-      &:last-child {
+      &:nth-child(2) {
         margin-top: 29px;
+      }
+
+      &:last-child {
+        margin-top: 0;
       }
     }
   }
 
   .border-line {
-    @media (max-width: 1023px) {
+    @media (max-width: 1024px) {
       display: none;
     }
 
@@ -486,7 +663,7 @@
       top: 70px;
       left: 48px;
       pointer-events: none;
-
+      border-left: none !important;
       @media (max-width: 1199px) {
         top: 48px;
         left: 30px;
@@ -498,6 +675,7 @@
       top: 70px;
       right: 48px;
       pointer-events: none;
+      border-right: none !important;
 
       @media (max-width: 1199px) {
         top: 48px;
@@ -545,7 +723,6 @@
           @media (max-width: 1111px) {
             width: 21.83%;
           }
-
         }
 
         &:last-child {
@@ -573,8 +750,12 @@
     right: 0;
     margin: auto;
     width: 1600px;
-    height: 1220px;
+    height: 1340px;
     pointer-events: none;
+
+    @media (max-width: 1024px) {
+      height: 950px;
+    }
 
     h3 {
       font-size: 16px;
@@ -587,6 +768,29 @@
       color: #ffffff;
       margin: 0;
       font-family: Montserrat;
+    }
+
+    .term-and-conditions-link {
+      position: absolute;
+      right: 90px;
+      bottom: 23px;
+      font-family: "Montserrat";
+      z-index: 3;
+      cursor: pointer;
+      pointer-events: auto;
+
+      .link {
+        font-family: "Montserrat";
+        font-size: 13px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.54;
+        letter-spacing: normal;
+        text-align: right;
+        color: #ffffff;
+        z-index: 3;
+      }
     }
 
     .mountain {
@@ -608,9 +812,12 @@
       opacity: 0;
       pointer-events: none;
 
+      @media (max-width: 1024px) {
+        display: none !important;
+      }
+
       img {
         max-width: 90px;
-
       }
     }
 
@@ -623,8 +830,7 @@
           opacity: 1;
 
           img {
-
-            animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+            animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
             -webkit-animation: linear;
             -webkit-animation-name: bounce;
             -webkit-animation-duration: 2s;
@@ -634,7 +840,6 @@
 
         .circle {
           span {
-
             &:first-child {
               -webkit-animation: linear;
               -webkit-animation-name: waves;
@@ -691,12 +896,16 @@
       }
     }
 
-
     .singapore {
       position: absolute;
       left: 27.7%;
       z-index: 3;
-      bottom: 40.2%;
+      bottom: 36.5%;
+
+      @media (max-width: 1024px) {
+        left: 27.6%;
+        bottom: 51.5%;
+      }
 
       h3 {
         margin-top: 15px;
@@ -713,7 +922,7 @@
         right: -63px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -725,7 +934,7 @@
       .img-singapore {
         width: 87px;
         height: 146px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($singapore-image-path);
       }
@@ -735,11 +944,16 @@
       position: absolute;
       left: 40.8%;
       z-index: 3;
-      bottom: 35%;
-      
+      bottom: 31.6%;
+
+      @media (max-width: 1024px) {
+        left: 40.9%;
+        bottom: 44.5%;
+      }
+
       .img-indonesia {
         height: 131px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($indonesia-image-path);
       }
@@ -754,7 +968,7 @@
         right: -69px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -768,19 +982,22 @@
           }
         }
       }
-
     }
 
     .china {
       position: absolute;
       left: 54.2%;
       z-index: 3;
-      bottom: 42.8%;
+      bottom: 39%;
+
+      @media (max-width: 1024px) {
+        bottom: 55.1%;
+      }
 
       .img-china {
         width: 135px;
         height: 83px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($china-image-path);
       }
@@ -795,7 +1012,7 @@
         right: 139px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -809,14 +1026,17 @@
           }
         }
       }
-
     }
 
     .india {
       position: absolute;
       left: 18.3%;
       z-index: 3;
-      bottom: 27.6%;
+      bottom: 25.2%;
+
+      @media (max-width: 1024px) {
+        bottom: 35.5%;
+      }
 
       h3 {
         margin-top: 10px;
@@ -828,7 +1048,7 @@
         right: -87px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -846,7 +1066,7 @@
       .img-india {
         width: 109px;
         height: 153px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($india-image-path);
       }
@@ -856,7 +1076,11 @@
       position: absolute;
       left: 12.2%;
       z-index: 3;
-      bottom: 14.1%;
+      bottom: 12.8%;
+
+      @media (max-width: 1024px) {
+        bottom: 18.2%;
+      }
 
       h3 {
         margin-top: 9px;
@@ -868,7 +1092,7 @@
         right: 94px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -886,7 +1110,7 @@
       .img-vietnam {
         width: 104px;
         height: 170px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($vietnam-image-path);
       }
@@ -896,7 +1120,11 @@
       position: absolute;
       left: 21.5%;
       z-index: 3;
-      bottom: 4.8%;
+      bottom: 4.4%;
+
+      @media (max-width: 1024px) {
+        bottom: 6.3%;
+      }
 
       h3 {
         margin-top: 11px;
@@ -909,7 +1137,7 @@
         right: 124px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -927,7 +1155,7 @@
       .img-malaysia {
         width: 89px;
         height: 189px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($malaysia-image-path);
       }
@@ -937,7 +1165,11 @@
       position: absolute;
       left: 29.5%;
       z-index: 3;
-      bottom: 13.2%;
+      bottom: 12%;
+
+      @media (max-width: 1024px) {
+        bottom: 17%;
+      }
 
       h3 {
         margin-top: 11px;
@@ -949,7 +1181,7 @@
         right: -83px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -967,7 +1199,7 @@
       .img-usa {
         width: 102px;
         height: 222px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($usa-image-path);
       }
@@ -977,7 +1209,11 @@
       position: absolute;
       z-index: 3;
       left: 41.4%;
-      bottom: 8.8%;
+      bottom: 7.9%;
+
+      @media (max-width: 1024px) {
+        bottom: 11.5%;
+      }
 
       h3 {
         margin-top: 10px;
@@ -989,7 +1225,7 @@
         right: 72px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -1007,7 +1243,7 @@
       .img-korea {
         width: 83px;
         height: 255px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($korea-image-path);
       }
@@ -1019,6 +1255,10 @@
       left: 47.8%;
       bottom: 5.4%;
 
+      @media (max-width: 1024px) {
+        bottom: 7.4%;
+      }
+
       h3 {
         margin-top: 15px;
       }
@@ -1029,7 +1269,7 @@
         right: -70px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -1046,7 +1286,7 @@
 
       .img-thailand {
         height: 189px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($thailand-image-path);
       }
@@ -1056,8 +1296,11 @@
       position: absolute;
       z-index: 3;
       left: 49.2%;
-      bottom: 24.4%;
+      bottom: 22.3%;
 
+      @media (max-width: 1024px) {
+        bottom: 32%;
+      }
 
       h3 {
         margin-top: 12px;
@@ -1069,7 +1312,7 @@
         right: -80px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -1087,7 +1330,7 @@
       .img-philippines {
         width: 199px;
         height: 112px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($philippines-image-path);
       }
@@ -1097,7 +1340,11 @@
       position: absolute;
       z-index: 3;
       left: 62.5%;
-      bottom: 17%;
+      bottom: 15.4%;
+
+      @media (max-width: 1024px) {
+        bottom: 21.8%;
+      }
 
       h3 {
         margin-top: 10px;
@@ -1109,7 +1356,7 @@
         right: -80px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -1127,7 +1374,7 @@
       .img-japan {
         width: 127px;
         height: 101px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($japan-image-path);
       }
@@ -1137,7 +1384,11 @@
       position: absolute;
       z-index: 3;
       left: 72.5%;
-      bottom: 25.7%;
+      bottom: 23.7%;
+
+      @media (max-width: 1024px) {
+        bottom: 33%;
+      }
 
       h3 {
         margin-top: 15px;
@@ -1149,7 +1400,7 @@
         right: -71px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -1167,7 +1418,7 @@
       .img-france {
         width: 125px;
         height: 244px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($france-image-path);
       }
@@ -1177,7 +1428,12 @@
       position: absolute;
       z-index: 3;
       left: 60.3%;
-      bottom: 5.6%;
+
+      bottom: 5%;
+
+      @media (max-width: 1024px) {
+        bottom: 7.1%;
+      }
 
       h3 {
         margin-top: 15px;
@@ -1189,7 +1445,7 @@
         right: 289px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -1207,7 +1463,7 @@
       .img-australia {
         width: 294px;
         height: 91px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($australia-image-path);
       }
@@ -1217,7 +1473,11 @@
       position: absolute;
       z-index: 3;
       left: 79.8%;
-      bottom: 9.6%;
+      bottom: 9.2%;
+
+      @media (max-width: 1024px) {
+        bottom: 12.6%;
+      }
 
       h3 {
         margin-top: 11px;
@@ -1229,7 +1489,7 @@
         right: -101px;
         display: block;
         opacity: 0;
-        transition: all .4s;
+        transition: all 0.4s;
         pointer-events: none;
 
         .circle {
@@ -1247,12 +1507,11 @@
       .img-dubai {
         width: 85px;
         height: 200px;
-        background-position: top center; 
+        background-position: top center;
         background-size: contain;
         background-image: url($dubai-image-path);
       }
     }
-
   }
 
   .clouds-left {
@@ -1271,13 +1530,23 @@
     }
 
     .cloud-lt {
-      top: 161px;
       left: -152px;
+      top: 192px;
+
+      @media (max-width: 667px) {
+        top: 40px;
+        max-width: 250px;
+      }
     }
 
     .cloud-lb {
-      top: 293px;
+      top: 313px;
       left: 131px;
+
+      @media (max-width: 667px) {
+        top: 129px;
+        max-width: 180px;
+      }
     }
   }
 
@@ -1290,17 +1559,21 @@
 
       &:first-child {
         left: 20%;
-        top: 40%;
+        top: 42%;
         opacity: 0;
         -webkit-animation: linear;
         -webkit-animation-name: moveCustomSmallLeft;
         -webkit-animation-duration: 12s;
         animation: moveCustomSmallLeft 12s linear;
         animation-delay: 1s;
+
+        @media (max-width: 667px) {
+          top: 30%;
+        }
       }
 
       &:last-child {
-        top: 40%;
+        top: 43%;
         left: 62%;
         opacity: 0;
         -webkit-animation: linear;
@@ -1308,6 +1581,10 @@
         -webkit-animation-duration: 6s;
         animation: moveCustomSmallRight 6s linear;
         animation-delay: 3s;
+
+        @media (max-width: 667px) {
+          top: 30%;
+        }
       }
     }
   }
@@ -1352,12 +1629,22 @@
 
     .cloud-rb {
       right: 64px;
-      top: 289px;
+      top: 309px;
+
+      @media (max-width: 667px) {
+        top: 129px;
+        max-width: 200px;
+      }
     }
 
     .cloud-rt {
       right: -114px;
-      top: 120px;
+      top: 153px;
+
+      @media (max-width: 667px) {
+        top: 40px;
+        max-width: 250px;
+      }
     }
   }
 
@@ -1369,7 +1656,6 @@
     animation-delay: 1s;
     opacity: 0;
     pointer-events: none;
-
   }
 
   @keyframes move {
@@ -1431,19 +1717,19 @@
     }
   }
 
-  .car {
-    position: absolute;
-    bottom: 0;
-    z-index: 3;
-    max-width: 279px;
-    width: 100%;
-    -webkit-animation: linear infinite;
-    -webkit-animation-name: runRightToLeft;
-    -webkit-animation-duration: 12s;
-    animation: runRightToLeft 12s linear infinite;
-    animation-delay: 2s;
-    pointer-events: none;
-  }
+  // .car {
+  //   position: absolute;
+  //   bottom: 0;
+  //   z-index: 3;
+  //   max-width: 100px;
+  //   width: 100%;
+  //   -webkit-animation: linear infinite;
+  //   -webkit-animation-name: runRightToLeft;
+  //   -webkit-animation-duration: 12s;
+  //   animation: runRightToLeft 12s linear infinite;
+  //   animation-delay: 2s;
+  //   pointer-events: none;
+  // }
 
   @keyframes bounce {
     0% {
@@ -1451,15 +1737,15 @@
     }
 
     10% {
-      transform: scale(1.1, .9) translateY(0);
+      transform: scale(1.1, 0.9) translateY(0);
     }
 
     30% {
-      transform: scale(.9, 1.1) translateY(-30px);
+      transform: scale(0.9, 1.1) translateY(-30px);
     }
 
     50% {
-      transform: scale(1.05, .95) translateY(0);
+      transform: scale(1.05, 0.95) translateY(0);
     }
 
     57% {
@@ -1477,7 +1763,7 @@
 
   @keyframes runRightToLeft {
     from {
-      right: -279px;
+      right: -120px;
     }
 
     to {
@@ -1487,7 +1773,7 @@
 
   @-webkit-keyframes runRightToLeft {
     from {
-      right: 0;
+      right: -120px;
     }
 
     to {
@@ -1576,7 +1862,6 @@
     to {
       transform: scale3d(1.4, 0.5, 1);
       opacity: 0;
-
     }
   }
 
@@ -1591,7 +1876,6 @@
       opacity: 0;
     }
   }
-
 
   .ballons {
     img {
@@ -1614,17 +1898,20 @@
         max-width: 135px;
         position: absolute;
         z-index: 3;
-        top: 43%;
+        top: 39%;
         right: 224px;
         -webkit-animation: balloon 5s ease-in-out infinite;
         animation: balloon 5s ease-in-out infinite;
         animation-delay: 2s;
+
+        @media (max-width: 1024px) {
+          top: 22%;
+        }
       }
     }
   }
 
   @-webkit-keyframes balloon {
-
     0%,
     to {
       -webkit-transform: translate(0, -10px);
@@ -1636,7 +1923,6 @@
   }
 
   @keyframes balloon {
-
     0%,
     to {
       -webkit-transform: translate(0, -10px);

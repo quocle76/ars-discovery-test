@@ -1,13 +1,4 @@
 @font-face {
-  font-family: "Playfair Display";
-  font-style: italic;
-  font-weight: 700;
-  src: local("Playfair Display Bold Italic"),
-    local("PlayfairDisplay-BoldItalic"),
-    url(~/assets/fonts/PlayfairDisplay/PlayfairDisplay-BoldItalic.ttf)
-      format("truetype");
-}
-@font-face {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
@@ -28,3 +19,17 @@
   src: local("Montserrat Bold"), local("Montserrat-Bold"),
     url(~/assets/fonts/Montserrat/Montserrat-Bold.ttf) format("truetype");
 }
+@font-face {
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/MaterialIcon/material-icon.woff2) format('woff2');
+  font-display: block;
+}
+@font-face {
+  font-family: Material Icons Outlined;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/MaterialIcon/material-icon.woff2) format('woff2');
+}
+

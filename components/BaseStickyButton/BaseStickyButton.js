@@ -1,3 +1,5 @@
+import formatNumber from '~/helpers/common';
+
 const BaseStickyButton = {
     name: 'BaseStickyButton',
     props: {
@@ -15,7 +17,11 @@ const BaseStickyButton = {
         },
         score: {
             type: Number,
-            default: 10
+            default: 0
+        },
+        unit: {
+            type: String,
+            default: ''
         },
         click: {
             type: Function,
@@ -32,22 +38,12 @@ const BaseStickyButton = {
         },
 
         /**
-         * Append prefix/suffix text to score prop base on variant prop
-         * @returns score with prefix/suffix text 
+         * Format score with units
+         * @returns formatted score with units
          */
-        textScore () {
-            let text = ''
-            switch (this.variant) {
-                case 'point':
-                    text = this.score + ' pts'
-                    break
-                case 'nft':
-                    text = 'x' + this.score
-                    break
-                default:
-                    break
-            }
-            return text
+        totalUnits () {
+            const suffix = this.score > 1 ? 's' : ''
+            return `${formatNumber(this.score)} ${this.unit}${suffix}`;
         }
      },
 }

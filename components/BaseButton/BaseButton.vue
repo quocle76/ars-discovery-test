@@ -2,11 +2,11 @@
    <button
     :class="[
       'button',
-      background ? `button--${background}` : '',
-      customWidth? `button--${customWidth}` : '',
-      customPadding ? `button--${customPadding}` : '',
-      customClass ? `button--${customClass}` : ''
+      transparent ? `button--transparent` : '',
+      customClass ? `button--${customClass}` : '',
+      medium ? `button--medium` : ''
     ]"
+    :disabled="disabled"
     @click="clickHandle"
   >
     <slot />

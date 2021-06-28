@@ -1,9 +1,9 @@
 <template>
-    <div class="dialog-transition" :class="isFullScreen ? 'dialog-transition-full-screen' : ''" v-show="showDialog">
+    <div class="dialog-transition" :class="isFullScreen ? 'dialog-transition-full-screen' : ''" v-show="showDialog"  @click="clickHandle">
       <div class="dialog-wrapper">
-        <div class="dialog-container">
+        <div class="dialog-container" @click.stop>
           <div class="dialog-button-close">
-            <img :src="require('~/static/images/close.svg')" alt="close" @click="clickHandle">
+            <img :src="require('~/assets/images/close.svg')" alt="close" @click="clickHandle">
           </div>
           <div class="dialog-left">
             <slot />

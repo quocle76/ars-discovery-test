@@ -1,6 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 const path = require("path");
-
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/ars-discovery/',
+  }
+} : {};
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -13,17 +17,17 @@ export default {
     dir: 'dist',
     subFolders: true
   },
-
-  router: {
-    base: '/',
-    extendRoutes(routes) {
-      routes.forEach((route) => {
-        const alias =
-          route.path.length > 1 ? `${route.path}/index.html` : '/index.html'
-        route.alias = alias
-      })
-    },
-  },
+  ...routerBase,
+  // router: {
+  //   base: '/',
+  //   extendRoutes(routes) {
+  //     routes.forEach((route) => {
+  //       const alias =
+  //         route.path.length > 1 ? `${route.path}/index.html` : '/index.html'
+  //       route.alias = alias
+  //     })
+  //   },
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
